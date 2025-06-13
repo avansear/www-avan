@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss/preflight";
 
 @theme inline {
   --color-background: var(--background);
