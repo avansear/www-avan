@@ -1,20 +1,77 @@
+"use client"
+
 import Image from "next/image";
 import Navbar from "../components/ui/navbar";
 import { Button } from "@/components/ui/button";
 import DraggableImages from "@/components/ui/draggable-images";
 import PhotoGrid from "@/components/ui/photo-grid";
 import { Instagram, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ParticleBurst from "@/components/ui/particle-burst";
 
 export default function Home() {
+  const [isFirstSectionVisible, setIsFirstSectionVisible] = useState(true);
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && isFirstSectionVisible) {
+          setShowParticles(true);
+          setTimeout(() => setShowParticles(false), 1000);
+        }
+        setIsFirstSectionVisible(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    const firstSection = document.getElementById("first-section");
+    if (firstSection) {
+      observer.observe(firstSection);
+    }
+
+    return () => {
+      if (firstSection) {
+        observer.unobserve(firstSection);
+      }
+    };
+  }, [isFirstSectionVisible]);
+
   return (
     <>
-      {/* <div className="z-50 fixed">
-        <DraggableImages />
-      </div> */}
+      <AnimatePresence>
+        {isFirstSectionVisible && (
+          <motion.div 
+            className="z-50 fixed"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ 
+              scale: 0.5, 
+              opacity: 0,
+              transition: {
+                duration: 0.3,
+                ease: "easeInOut"
+              }
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 25
+            }}
+          >
+            <DraggableImages />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showParticles && <ParticleBurst />}
+      </AnimatePresence>
       
       <Navbar />
       <div className="flex flex-col">
-        <section className="h-screen flex flex-col items-center justify-center gap-8 p-8">
+        <section id="first-section" className="h-screen flex flex-col items-center justify-center gap-8 p-8">
           <h1 className="text-9xl font-bold">Welcome I'm avan ;)</h1>
           <h2 className="text-2xl">I'm a designer but I love doing other stuff too</h2>
         </section>
