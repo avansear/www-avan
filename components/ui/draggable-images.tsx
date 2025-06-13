@@ -4,12 +4,12 @@ import * as motion from "motion/react-client"
 import { useRef } from "react"
 
 const images = [
-    { src: "/DSC_0392.JPG", alt: "Avan 4" },
-    { src: "/DSC_0392.JPG", alt: "Avan 5" },
-    { src: "/DSC_0392.JPG", alt: "Avan 6" },
-    { src: "/DSC_0392.JPG", alt: "Avan 7" },
-    { src: "/DSC_0392.JPG", alt: "Avan 8" },
-    { src: "/DSC_0392.JPG", alt: "Avan 9" },
+    { src: "/PSX_20250427_200249.jpg", alt: "Photo 1" },
+    { src: "/oleg-demakov-zEIApnww3fU-unsplash.jpg", alt: "Photo 2" },
+    { src: "/Life-is-Strange-Screenshot-013-633996040.jpg", alt: "Photo 3" },
+    { src: "/kevin-mueller-yUqTvrvVfrE-unsplash.jpg", alt: "Photo 4" },
+    { src: "/Frame 82(1).png", alt: "Photo 5" },
+    { src: "/DSC_0392.JPG", alt: "Photo 6" },
 ]
 
 export default function DraggableImages() {
@@ -29,8 +29,9 @@ export default function DraggableImages() {
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         position: "absolute",
-                        top: `${Math.random() * 80}%`,
-                        left: `${Math.random() * 80}%`,
+                        top: "50%",
+                        left: "50%",
+                        transform: `translate(-50%, -50%) translateY(${Math.random() * 50}px) translateX(${Math.random() * 50}px)`,
                     }}
                 />
             ))}
