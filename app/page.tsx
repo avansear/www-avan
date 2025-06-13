@@ -2,66 +2,65 @@ import Image from "next/image";
 import Navbar from "../components/ui/navbar";
 import { Button } from "@/components/ui/button";
 import DraggableImages from "@/components/ui/draggable-images";
+import PhotoGrid from "@/components/ui/photo-grid";
+import { Instagram, Linkedin } from "lucide-react";
 
 export default function Home() {
   return (
     <>
-      <div className="z-50 fixed">
+      {/* <div className="z-50 fixed">
         <DraggableImages />
-      </div>
+      </div> */}
+      
       <Navbar />
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-          <h1 className="text-4xl font-bold">Welcome I'm avan ;)</h1>
+      <div className="flex flex-col">
+        <section className="h-screen flex flex-col items-center justify-center gap-8 p-8">
+          <h1 className="text-9xl font-bold">Welcome I'm avan ;)</h1>
+          <h2 className="text-2xl">I'm a designer but I love doing other stuff too</h2>
+        </section>
 
-          <div className="flex gap-4 items-center flex-col sm:flex-row"></div>
-        </main>
-        <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/file.svg"
-              alt="File icon"
-              width={16}
-              height={16}
-            />
-            Learn
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/window.svg"
-              alt="Window icon"
-              width={16}
-              height={16}
-            />
-            Examples
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
+        <section className="min-h-screen flex flex-col items-center justify-center gap-8 p-8">
+          <h1 className="text-6xl">Likeee photography</h1>
+          <h2 className="text-2xl">I love taking photos of people and places</h2>
+          <PhotoGrid />
+        </section>
+
+        <footer className="h-screen flex flex-col items-center justify-center gap-8 p-8">
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col gap-4">
+              <h1 className="text-6xl">and that's pretty much it :))</h1>
+              <h2 className="text-2xl">Check out more stuff or reach out on socials</h2>
+            </div>
+            <div className="flex flex-row gap-8 items-center">
+              <a
+                className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-2xl"
+                href="https://instagram.com/your_username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="w-24 h-24" />
+                Instagram
+              </a>
+              <a
+                className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-2xl"
+                href="https://linkedin.com/in/your_username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-24 h-24" />
+                LinkedIn
+              </a>
+              <a
+                className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-2xl"
+                href="https://instagram.com/your_other_username"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="w-24 h-24" />
+                Instagram
+              </a>
+            </div>
+          </div>
         </footer>
       </div>
     </>
